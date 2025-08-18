@@ -1,0 +1,47 @@
+# --- Node / Next.js ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.next/
+.next/cache/
+.cache/
+dist/
+coverage/
+*.log
+
+# Keep your lockfile (important for reproducible builds)
+# (do NOT ignore package-lock.json / pnpm-lock.yaml / yarn.lock)
+
+# --- Next static export (built by CI or locally) ---
+out/
+
+# --- Environment & secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Certificates / keys (Cloudflare Origin, etc.) ---
+certs/
+**/*.pem
+**/*.key
+**/*.crt
+**/*.pfx
+
+# Cloudflared credentials (if you ever generate them locally)
+.cloudflared/
+
+# --- Docker ---
+*.tar
+docker-compose.override.yml
+
+# --- Editor / OS cruft ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Misc temp ---
+tmp/
+*.local
