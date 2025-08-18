@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========= PALETTE & TOKENS ========= */
+:root{
+  /* Light palette (light → dark) */
+  --c1:#AAA9AD; --c2:#848689; --c3:#5B676D; --c4:#2A3439; --c5:#1F262A;
+
+  --bg:#f9f9f9;
+  --fg:#101214;
+  --surface:#ffffffcc;     /* translucent */
+  --border:#00000022;
+  --accent:var(--c4);
+  --muted:#00000099;
+
+  --surface-rgb:255,255,255;
+  --border-rgb:0,0,0;
+  --accent-rgb:42,52,57;
+
+  --footer-h:64px;
+  --btn-radius:12px;
+  --btn-size:44px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    /* Dark palette (inverted) */
+    --c1:#1F262A; --c2:#2A3439; --c3:#5B676D; --c4:#848689; --c5:#AAA9AD;
+
+    --bg:#0b0d0f;
+    --fg:#eaecef;
+    --surface:#0d1117cc;   /* translucent */
+    --border:#ffffff22;
+    --accent:var(--c2);
+    --muted:#ffffffb3;
+
+    --surface-rgb:13,17,23;
+    --border-rgb:255,255,255;
+    --accent-rgb:40,52,57;
+  }
+}
+
+html, body{ background:var(--bg); color:var(--fg); }
+
+/* ========= LINKS (readable hover) ========= */
+:root{ --link:var(--fg); --link-hover:var(--accent); }
+@media (prefers-color-scheme: dark){
+  :root{ --link:var(--fg); --link-hover:var(--c1); } /* lightest tone on dark */
+}
+a, a:visited{ color:var(--link); }
+a:hover{ color:var(--link-hover); }
+
+/* ========= UTILITY SHIMS (used in markup) ========= */
+.bg-surface\/70{ background-color:rgba(var(--surface-rgb),0.70); }
+.border-border\/60{ border-color:rgba(var(--border-rgb),0.60); }
+.text-muted{ color:var(--muted); }
+.text-accent{ color:var(--accent); }
+.decoration-accent\/40{ text-decoration-color: color-mix(in oklab, var(--accent) 40%, transparent); }
+
+/* Centers the hero in the viewport, accounting for your fixed header & footer */
+.hero-minh {
+  min-height: calc(100vh - 80px - var(--footer-h, 56px)); /* adjust 80px if your header height differs */
+}
+
+/* ========= COMPONENT SHORTCUTS ========= */
+@layer components{
+  .btn-primary{
+    @apply rounded-xl px-4 py-2 font-medium text-white shadow-md;
+    background:var(--accent);
+  }
+  .btn-ghost{
+    @apply rounded-xl px-4 py-2 font-medium border border-border/60;
+    background: color-mix(in oklab, var(--surface) 70%, transparent);
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  }
+  .nav-link{ @apply rounded-xl px-3 py-1 text-sm border border-transparent; }
+  .nav-link,.nav-link:visited{ color:var(--link); }
+  .nav-link:hover{
+    color:var(--link-hover);
+    text-decoration:underline; text-underline-offset:4px;
+  }
+  .link{ @apply underline; text-underline-offset:4px; }
+}
+
+/* ========= FOOTER BANNER & ICON BUTTONS ========= */
+@layer components{
+  .footer-banner{
+    background:var(--surface);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-top:1px solid rgba(var(--border-rgb),0.6);
+  }
+  .icon-btn,.icon-btn:visited{
+    border-radius:var(--btn-radius);
+    width:var(--btn-size); height:var(--btn-size);
+    display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid rgba(var(--border-rgb),0.60);
+    background: color-mix(in oklab, var(--surface) 90%, transparent);
+    color:var(--fg);
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+    transition: color .15s ease, transform .15s ease, opacity .15s ease;
+  }
+  .icon-btn:hover{ color:var(--link-hover); opacity:.95; transform:translateY(-1px); }
+}
+
+/* ========= PROJECTS: STACK SPACING ========= */
+@layer components{
+  /* robust vertical spacing regardless of layout */
+  .projects-stack > .project + .project{ margin-top:32px; } /* adjust to taste */
+}
+
+/* ========= PROJECT CARDS (hover-expand) ========= */
+@layer components{
+  .project{
+    position:relative; display:block; cursor:default;
+    border:1px solid rgba(var(--border-rgb),0.60);
+    border-radius:14px; overflow:hidden; background-clip:padding-box;
+    padding:14px 16px 16px 16px;
+    background: color-mix(in oklab, var(--surface) 75%, transparent);
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+    transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    outline:none; touch-action:manipulation;
+  }
+  .project:hover,
+  .project:focus-visible,
+  .project.is-open{
+    background: color-mix(in oklab, var(--surface) 92%, transparent);
+    border-color: rgba(var(--border-rgb),.80);
+    box-shadow:
+      0 0 0 2px color-mix(in oklab, var(--accent) 50%, transparent), /* ring */
+      0 10px 28px rgba(0,0,0,.18);
+    transform: translateY(-1px);
+  }
+
+  .project-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .project-title{ font-weight:700; letter-spacing:-0.01em; }
+  .project-meta{ display:inline-flex; align-items:center; gap:8px; opacity:.95; }
+
+  .project-content{
+    max-height:0; overflow:hidden;
+    opacity:0; transform:translateY(-4px);
+    transition: max-height .32s ease, opacity .20s ease, transform .20s ease;
+  }
+  .project:hover .project-content,
+  .project:focus-visible .project-content,
+  .project.is-open .project-content{
+    max-height:480px; opacity:1; transform:translateY(0);
+  }
+
+  /* Tags */
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:2px 8px; font-size:12px; line-height:1;
+    border-radius:9999px;
+    border:1px solid rgba(var(--border-rgb),0.60);
+    background: color-mix(in oklab, var(--surface) 80%, transparent);
+  }
+
+  /* Tags (left) + CTA (right) row */
+  .project-actions{
+    margin-top:12px; display:flex; align-items:center; gap:12px;
+  }
+
+  /* CTA looks like a chip; only visible when expanded */
+  .project-cta{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:12px; line-height:1; padding:2px 8px;
+    border-radius:9999px;
+    border:1px solid rgba(var(--border-rgb),0.60);
+    background: color-mix(in oklab, var(--surface) 80%, transparent);
+    color:var(--link); text-decoration:none;
+
+    margin-left:auto !important;
+    transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+
+    opacity:0; pointer-events:none; transform:translateY(2px);
+  }
+  .project:hover .project-cta,
+  .project.is-open .project-cta{
+    opacity:1; pointer-events:auto; transform:translateY(0);
+  }
+  /* readable hover for CTA */
+  .project-cta:hover,
+  .project-cta:focus-visible{
+    background: var(--link-hover);
+    color:#fff; border-color:transparent;
+    box-shadow:0 0 0 2px color-mix(in oklab, var(--link-hover) 35%, transparent);
+  }
+}
+
+/* Header row keeps title left, button right */
+.header-row{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:nowrap;
+}
+
+/* Header toggle: container (no fixed width so text fits) */
+.header-toggle{
+  position: relative;
+  padding: 0; border: 0; background: transparent; cursor: pointer; line-height: 0;
+}
+
+/* Visible rounded-rect button (32px tall), same look as card toggle */
+.header-toggle-box{
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 32px;                    /* exact height */
+  padding: 0 12px;                 /* horizontal room for label */
+  box-sizing: border-box;
+  border-radius: var(--toggle-radius, 10px);
+  border: 1px solid rgba(var(--border-rgb),0.6);
+  background: color-mix(in oklab, var(--surface) 85%, transparent);
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  color: #fff;
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+/* One smooth halo that conforms to the rounded rectangle */
+.header-toggle-box::before{
+  content:"";
+  position:absolute; inset:0; border-radius: inherit;
+  box-shadow: 0 0 0 var(--halo-stroke, 2px) rgba(255,255,255,var(--halo-alpha, .95));
+  filter: drop-shadow(0 0 var(--halo-blur, 10px) rgba(255,255,255,.55));
+  opacity: 0; pointer-events: none; transition: opacity .18s ease;
+}
+.header-toggle:hover .header-toggle-box::before,
+.header-toggle:focus-visible .header-toggle-box::before{ opacity: 1; }
+
+/* Icon + label */
+.header-toggle-icon{
+  width:18px; height:18px; display:block; transform-origin:50% 50%; transition: transform .2s ease;
+}
+.header-toggle-label{
+  margin-left: 8px; font-size: 12px; line-height: 1; color: inherit; white-space: nowrap;
+}
+
+/* "Collapse" state */
+.header-toggle.is-open .header-toggle-box{ background: var(--accent); border-color: transparent; }
+.header-toggle.is-open .header-toggle-icon{ transform: rotate(45deg); } /* + → × */
+
+
+/* ===== Restore PER-CARD expand/collapse toggle (square, halo, taller hitbox) ===== */
+:root{
+  --pt-size: 32px;          /* visible square size */
+  --pt-radius: 10px;        /* corner radius */
+  --pt-extra: -4px;          /* extra clickable pixels vertically (6–10 ok) */
+  --pt-halo-stroke: 2px;    /* crisp edge at the border */
+  --pt-halo-blur: 10px;     /* outward fade distance */
+  --pt-halo-alpha: .95;     /* opacity at the border */
+}
+
+.project-toggle{
+  position: absolute;
+  top: 10px; right: 10px;
+  width: var(--pt-size);
+  height: calc(var(--pt-size) + var(--pt-extra));      /* 32 + extra -> taller hitbox */
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; border: 0; background: transparent; cursor: pointer; line-height: 0;
+  z-index: 10;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Single rounded-rect halo that follows the button shape */
+.project-toggle::before{
+  content: "";
+  position: absolute;
+  width: var(--pt-size);
+  height: var(--pt-size);
+  border-radius: var(--pt-radius);
+  box-shadow: 0 0 0 var(--pt-halo-stroke) rgba(255,255,255,var(--pt-halo-alpha));
+  filter: drop-shadow(0 0 var(--pt-halo-blur) rgba(255,255,255,.55));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+.project-toggle:hover::before,
+.project-toggle:focus-visible::before{ opacity: 1; }
+
+.project-toggle-box{
+  position: relative; z-index: 1;
+  display: grid; place-items: center;
+  width: var(--pt-size); height: var(--pt-size);
+  box-sizing: border-box;
+  border-radius: var(--pt-radius);
+  border: 1px solid rgba(var(--border-rgb), 0.6);
+  background: color-mix(in oklab, var(--surface) 85%, transparent);
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  color: #fff;
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.project-toggle-icon{
+  width: 18px; height: 18px; display: block;
+  transform-origin: 50% 50%;
+  transition: transform .2s ease;
+}
+
+/* Pinned/open state */
+.project.is-open .project-toggle-box{ background: var(--accent); border-color: transparent; }
+.project.is-open .project-toggle-icon{ transform: rotate(45deg); }
+
+/* === About portrait frame (rounded, clipped, float-wrapped) === */
+.about-portrait{
+  /* editable knobs (can be overridden inline) */
+  --portrait-w: 320px;         /* visible width */
+  --portrait-h: 380px;         /* visible height – change this to align with H1 */
+  --portrait-radius: 16px;     /* corner radius */
+
+  position: relative;
+  width: min(100%, var(--portrait-w));
+  height: var(--portrait-h);
+  border-radius: var(--portrait-radius);
+  overflow: hidden;                               /* CLIPS the image corners */
+  border: 1px solid rgba(var(--border-rgb), 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  isolation: isolate;                             /* keeps the clip clean */
+}
+
+/* Next/Image adds a span wrapper; inherit the radius to everything inside */
+.about-portrait :is(span, img){ border-radius: inherit; }
+
+/* Make surrounding text wrap around the rounded rectangle on desktop */
+@media (min-width: 640px){
+  .float-wrap-right{
+    float: right;
+    /* Wrap follows the rounded corners */
+    shape-outside: inset(0 round var(--portrait-radius));
+    shape-margin: 12px;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .float-wrap-left{
+    float: left;
+    shape-outside: inset(0 round var(--portrait-radius));
+    shape-margin: 12px;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
