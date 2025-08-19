@@ -34,10 +34,13 @@ This will start the development server at `http://localhost:3000`.
 The following are the next steps for this project:
 
 *   **Code Cleanup and Refactoring**: The codebase needs to be cleaned up and refactored to improve readability and maintainability. This includes:
-    *   Organizing the file structure.
     *   Improving the component design.
     *   Removing unused code.
+    *   Consolidating duplicate code.
 *   **Mobile Responsiveness**: The website is not fully responsive and needs to be optimized for mobile devices. This includes:
     *   Making the layout responsive to different screen sizes.
     *   Ensuring that all elements are properly sized and aligned on mobile devices.
     *   Testing the website on different mobile devices and browsers.
+*   **Misc Tasks**:
+    *   The image in the about page takes too long to load, I suspect this is because the file is too large. The resolution needs to be scaled down.
+    *   I need to finish adding the GitHub links to all of my various projects. Some of the repositories are private.
