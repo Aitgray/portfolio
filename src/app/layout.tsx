@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Resume — opens PDF in a new tab */}
               <Link
-                href="/resume.pdf"
+                href="/Aidan Gray Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Open resume as PDF in a new tab"
