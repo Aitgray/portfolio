@@ -39,28 +39,23 @@ const projects: Project[] = [
     repo: "Private Repository",
   },
   {
-    title: "250 Notes Scraper",
+    title: "220 Lab",
+    summary: "A perceptron-based branch-predictor built on top of Scarab, a cycle accurate CPU simulator. My work is private due to the nature of this assignment,\
+     but I've attached a link to Scarab for reference",
+    tech: ["C++", "Scarab"],
+    repo: "https://github.com/hpsresearchgroup/scarab",
+  },
+  {
+    title: "Notes Scraper",
     summary: "Scrapes PDFs with PyPDF2 and cleans the text via regex for usable study notes.",
     tech: ["Python", "PyPDF2", "Regex"],
     repo: "https://github.com/Aitgray/NoteScraper",
-  },
-  {
-    title: "Compression",
-    summary: "A file compression utility using gzip and planned GUI with PyQt5. It features a hash map for categorization and intends to add encryption and automated file categorization using computer vision in the future.",
-    tech: ["Python", "PyQt5", "gzip", "OpenCV"],
-    repo: "https://github.com/Aitgray/Compression"
   },
   {
     title: "FlasktorioAsgn4",
     summary: "A distributed, fault-tolerant, and sharded key-value store built with Flask. It implements causal consistency using vector clocks and manages node membership and replication for high availability.",
     tech: ["Python", "Flask", "Distributed Systems", "Vector Clocks", "Sharding", "REST APIs"],
     repo: "Private Repository"
-  },
-  {
-    title: "ImageConverter",
-    summary: "A Python utility to convert HEIC images to JPG format. It uses a pre-trained PyTorch model and the face_recognition library to automatically classify and sort the converted images into categories like 'person', 'animal', or 'landscape'.",
-    tech: ["Python", "PyTorch", "Pillow", "face_recognition"],
-    repo: "https://github.com/Aitgray/ImageConverter"
   },
   {
     title: "RL_Agent",
@@ -73,6 +68,18 @@ const projects: Project[] = [
     summary: "Modern portfolio built with Next.js + React/TypeScript; Tailwind styling and Dockerized deployment.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Docker"],
     repo: "https://github.com/Aitgray/portfolio",
+  },
+  {
+    title: "Compression",
+    summary: "A file compression utility using gzip and planned GUI with PyQt5. It features a hash map for categorization and intends to add encryption and automated file categorization using computer vision in the future.",
+    tech: ["Python", "PyQt5", "gzip", "OpenCV"],
+    repo: "https://github.com/Aitgray/Compression"
+  },
+  {
+    title: "ImageConverter",
+    summary: "A Python utility to convert HEIC images to JPG format. It uses a pre-trained PyTorch model and the face_recognition library to automatically classify and sort the converted images into categories like 'person', 'animal', or 'landscape'.",
+    tech: ["Python", "PyTorch", "Pillow", "face_recognition"],
+    repo: "https://github.com/Aitgray/ImageConverter"
   },
 ];
 
