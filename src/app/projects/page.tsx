@@ -11,70 +11,68 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "250 Notes Scraper",
-    summary: "Scrapes PDFs with PyPDF2 and cleans the text via regex for usable study notes.",
-    tech: ["Python", "PyPDF2", "Regex"],
-    repo: "https://github.com/yourhandle/250-notes-scraper",
+    title: "KVALD",
+    summary: "Local-dimming / vision pipeline with a U-Net in PyTorch; C++/CMake core, Dockerized; uses OpenCV and Eigen.",
+    tech: ["Python", "PyTorch", "OpenCV", "Computer Vision"],
+    repo: "https://github.com/Aitgray/KVALD",
   },
   {
     title: "BardBot",
     summary: "Discord bot that records & transcribes D&D sessions using Azure Speech-to-Text, storing artifacts in Blob Storage.",
     tech: ["Python", "discord.py", "Azure Speech-to-Text", "Azure Blob Storage", "REST"],
-    repo: "https://github.com/yourhandle/bardbot",
+    repo: "https://github.com/Aitgray/BardBot",
+  },
+  {
+   title: "Scada Generator",
+   summary: "Developed a diffusion-based model to generate realistic Modbus industrial control system packets for security and intrusion-detection research.\
+    Built an end-to-end pipeline to synthesize, serialize, and validate protocol-correct traffic.\
+     Designed a statistical validation framework using PCA and SVM classifiers to measure how distinguishable synthetic packets were from real traffic.",
+   tech: ["Sklearn", "scapy", "logging", "pyshark", "pandas"],
+    repo: "https://github.com/char26/scada-generator",
+  },
+  {
+    title: "Cloud Storage",
+    summary: "An automated cloud based benchmarking framework to evaluate PostgreSQL and ScyllaDB using YCSB.\
+     Executed insert, load, stress, soak, and spike workloads on datasets up to 10 million records, collecting throughput, tail latency, and system-level CPU, memory, disk, and network metrics.\
+     Developed with modularity in mind, so additional databases can be added in the future with relative ease.",
+    tech: ["Terraform", "Kubernetes", "Docker", "YCSB", "Google Cloud", "PostgreSQL", "ScyllaDB"],
+    repo: "Private Repository",
+  },
+  {
+    title: "250 Notes Scraper",
+    summary: "Scrapes PDFs with PyPDF2 and cleans the text via regex for usable study notes.",
+    tech: ["Python", "PyPDF2", "Regex"],
+    repo: "https://github.com/Aitgray/NoteScraper",
   },
   {
     title: "Compression",
     summary: "A file compression utility using gzip and planned GUI with PyQt5. It features a hash map for categorization and intends to add encryption and automated file categorization using computer vision in the future.",
     tech: ["Python", "PyQt5", "gzip", "OpenCV"],
-    repo: ""
+    repo: "https://github.com/Aitgray/Compression"
   },
   {
     title: "FlasktorioAsgn4",
     summary: "A distributed, fault-tolerant, and sharded key-value store built with Flask. It implements causal consistency using vector clocks and manages node membership and replication for high availability.",
     tech: ["Python", "Flask", "Distributed Systems", "Vector Clocks", "Sharding", "REST APIs"],
-    repo: ""
+    repo: "Private Repository"
   },
   {
     title: "ImageConverter",
     summary: "A Python utility to convert HEIC images to JPG format. It uses a pre-trained PyTorch model and the face_recognition library to automatically classify and sort the converted images into categories like 'person', 'animal', or 'landscape'.",
     tech: ["Python", "PyTorch", "Pillow", "face_recognition"],
-    repo: ""
-  },
-  {
-    title: "KVALD",
-    summary: "Local-dimming / vision pipeline with a U-Net in PyTorch; C++/CMake core, Dockerized; uses OpenCV and Eigen.",
-    tech: ["C++", "Python", "PyTorch", "OpenCV", "CMake", "Docker", "Eigen"],
-    repo: "https://github.com/yourhandle/kvald",
-  },
-  {
-    title: "Diffusers Text-to-Image",
-    summary: "Generates images from text prompts using Hugging Face Diffusers and a pre-trained model.",
-    tech: ["Python", "PyTorch", "Diffusers"],
-    repo: "https://github.com/yourhandle/diffusers-text-to-image",
+    repo: "https://github.com/Aitgray/ImageConverter"
   },
   {
     title: "RL_Agent",
     summary: "A reinforcement learning agent built with PyTorch to control a vehicle in the CARLA simulator. The agent uses a policy network to learn how to navigate to a destination while adhering to speed limits.",
     tech: ["Python", "PyTorch", "CARLA", "Reinforcement Learning", "Machine Learning"],
-    repo: ""
-  },
-  {
-    title: "Solitaire",
-    summary: "Solitaire player with a TensorFlow/Keras policy network; includes rules engine and training pipeline.",
-    tech: ["Python", "TensorFlow", "Keras", "NumPy", "Machine Learning"],
-    repo: "https://github.com/yourhandle/solitaire-ml",
+    repo: "https://github.com/Aitgray/RL_Agent"
   },
   {
     title: "Website (Next.js)",
     summary: "Modern portfolio built with Next.js + React/TypeScript; Tailwind styling and Dockerized deployment.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Docker"],
-    repo: "https://github.com/yourhandle/portfolio-nextjs",
-  },
-  {
-    title: "Wordle",
-    summary: "Wordle clone with both a command-line mode and a Tkinter GUI.",
-    tech: ["Python", "tkinter"],
-    repo: "https://github.com/yourhandle/wordle-clone",
+    repo: "https://github.com/Aitgray/portfolio",
   },
 ];
 
