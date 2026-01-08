@@ -23,7 +23,7 @@ const projects: Project[] = [
     repo: "https://github.com/Aitgray/BardBot",
   },
   {
-   title: "Scada Generator",
+   title: "Synthetic SCADA Network Traffic Generation",
    summary: "Developed a diffusion-based model to generate realistic Modbus industrial control system packets for security and intrusion-detection research.\
     Built an end-to-end pipeline to synthesize, serialize, and validate protocol-correct traffic.\
      Designed a statistical validation framework using PCA and SVM classifiers to measure how distinguishable synthetic packets were from real traffic.",
@@ -31,7 +31,7 @@ const projects: Project[] = [
     repo: "https://github.com/char26/scada-generator",
   },
   {
-    title: "Cloud Storage",
+    title: "Cloud Storage Systems Benchmarking",
     summary: "An automated cloud based benchmarking framework to evaluate PostgreSQL and ScyllaDB using YCSB.\
      Executed insert, load, stress, soak, and spike workloads on datasets up to 10 million records, collecting throughput, tail latency, and system-level CPU, memory, disk, and network metrics.\
      Developed with modularity in mind, so additional databases can be added in the future with relative ease.",

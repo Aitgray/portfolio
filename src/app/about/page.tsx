@@ -75,19 +75,19 @@ export default function About() {
         <ul className="mt-2 space-y-2 text-sm">
           <li>
             <span className="font-medium">KVALD</span>: local dimming and vision pipeline with a U-Net in PyTorch,
-            C++/CMake core, Dockerized, using OpenCV and Eigen.
+            Dockerized, using OpenCV and Eigen.
           </li>
           <li>
             <span className="font-medium">BardBot</span>: Discord bot that records and transcribes D&amp;D sessions
-            with Azure Speech, storing artifacts in Blob Storage.
+            with OpenAI's Whisper architecture, providing automatic summary generation.
           </li>
           <li>
-            <span className="font-medium">Solitaire ML</span>: rules engine and a TensorFlow/Keras policy network,
-            with a training loop and evaluation utilities.
+            <span className="font-medium">Synthetic SCADA Network Traffic Generation</span>: A synthetic SCADA packet generator 
+            intended to enable researchers to create realistic network traffic when real-world datasets are limited or unavailable.
           </li>
           <li>
-            <span className="font-medium">Portfolio (Next.js)</span>: this site using React/TypeScript and Tailwind,
-            served with Nginx and Docker and protected by Cloudflare.
+            <span className="font-medium">Cloud Storage Systems Benchmarking</span>: A cloud-based database benchmarking framework 
+            designed to compare storage systems under realistic, repeatable workloads.
           </li>
         </ul>
 
