@@ -22,11 +22,11 @@ export default function PrivateRepository() {
         <p className="text-muted">
           If you are an employer, collaborator, or reviewer and need access,
           feel free to reach out via LinkedIn (linked in the footer) and I can
-          provide credentials or a private walkthrough.
+          provide credentials, write-ups, or a private walkthrough.
         </p>
 
         <div className="mt-6 text-sm text-muted">
-          Public projects and write-ups can be found on the{" "}
+          Public projects can be found on the{" "}
           <a href="/projects" className="link">
             Projects
           </a>{" "}
