@@ -11,6 +11,20 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "GitHub Trending Synthesizer",
+    summary: "Aggregates GitHub's trending page over a 7-day rolling window and scores repos by persistence — days appeared weighted by cumulative stars — to filter out one-day viral spikes.\
+     The top 40 repos are passed to Claude Haiku, which identifies 3–5 durable themes and proposes 9–15 original project ideas across short, medium, and long scope tiers. README is auto-regenerated each Sunday.",
+    tech: ["Python", "GitHub API", "Claude Haiku", "Anthropic", "Automation"],
+    repo: "https://github.com/Aitgray/Trending-Project-Recommendations",
+  },
+  {
+    title: "Cover Letter Generator",
+    summary: "Generates tailored cover letters using a locally-running LLM via Ollama. Uses RAG to embed the job description and compare it against chunks from your own project reports in a vector DB,\
+     injecting the most relevant excerpts as context so the model references your specific work rather than generic filler. Supports reasoning models such as Qwen 3.",
+    tech: ["Python", "Ollama", "RAG", "Vector DB", "LLM", "NLP"],
+    repo: "https://github.com/Aitgray/Cover-Letter-Generator",
+  },
+  {
     title: "KVALD",
     summary: "Local-dimming / vision pipeline with a U-Net in PyTorch; C++/CMake core, Dockerized; uses OpenCV and Eigen.",
     tech: ["Python", "PyTorch", "OpenCV", "Computer Vision"],
